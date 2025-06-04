@@ -12,7 +12,7 @@ export interface Props {
 
 const { title } = Astro.props;
 
-export { SobreMi, Tecnologias, Principal, Proyectos };
+export { SobreMi, Tecnologias, Principal, Proyectos, Contact, ThemeToggle };
 ---
 
 <!doctype html>
@@ -37,10 +37,10 @@ export { SobreMi, Tecnologias, Principal, Proyectos };
                 
                 <div class="flex items-center space-x-6">
                     <div class="hidden md:flex space-x-4">
-                        <a href="/#sobremi" class="text-light-secondary dark:text-dark-secondary hover:text-primary-brown transition-colors duration-200 font-medium">About Me</a>
-                        <a href="/#tecnologias" class="text-light-secondary dark:text-dark-secondary hover:text-primary-brown transition-colors duration-200 font-medium">Technologies</a>
-                        <a href="/#proyectos" class="text-light-secondary dark:text-dark-secondary hover:text-primary-brown transition-colors duration-200 font-medium">Projects</a>
-                        <a href="/#contact" class="text-light-secondary dark:text-dark-secondary hover:text-primary-brown transition-colors duration-200 font-medium">Contact</a>
+                        <a href="#sobremi" class="text-light-secondary dark:text-dark-secondary hover:text-primary-brown transition-colors duration-200 font-medium">About Me</a>
+                        <a href="#tecnologias" class="text-light-secondary dark:text-dark-secondary hover:text-primary-brown transition-colors duration-200 font-medium">Technologies</a>
+                        <a href="#proyectos" class="text-light-secondary dark:text-dark-secondary hover:text-primary-brown transition-colors duration-200 font-medium">Projects</a>
+                        <a href="#contact" class="text-light-secondary dark:text-dark-secondary hover:text-primary-brown transition-colors duration-200 font-medium">Contact</a>
                     </div>
                     <ThemeToggle />
                 </div>
@@ -69,3 +69,35 @@ export { SobreMi, Tecnologias, Principal, Proyectos };
         font-family: 'Inter', sans-serif;
     }
 </style>
+
+<script>
+    function setupSmoothScrolling() {
+        const anchors = document.querySelectorAll('a[href^="#"]');
+        
+        anchors.forEach((anchor) => {
+            anchor.addEventListener('click', function (event) {
+                event.preventDefault();
+                
+                const targetId = anchor.getAttribute('href')?.substring(1);
+                const targetElement = targetId ? document.getElementById(targetId) : null;
+                
+                if (targetElement) {
+                    const header = document.querySelector('header') as HTMLElement;
+                    const headerHeight = header?.offsetHeight || 0;
+                    const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupSmoothScrolling);
+    } else {
+        setupSmoothScrolling();
+    }
+</script>
