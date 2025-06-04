@@ -1,0 +1,87 @@
+---
+import ProjectSection from './react/ProjectSection.tsx';
+import type { Project } from '../ui/ProjectCardItem';
+
+const projectData: Project[] = [
+  {
+    id: 'proj1',
+    title: 'Sol Store E-commerce',
+    category: 'Full-Stack',
+    description: 'Plataforma de E-commerce para venta y manejo de catalogo de empresa de impresiones 3d',
+    technologies: ['Vue', 'Laravel', 'Tailwind CSS', 'JavaScript', 'PostgreSQL'],
+    image: 'src/assets/sol.png'
+  },
+  {
+    id: 'proj2',
+    title: 'TUTO',
+    category: 'Mobile development',
+    description: 'The best way to find tutors and students in your area, with a simple and intuitive interface.',
+    technologies: ['Kotlin', 'Firebase', 'AndroidStudio'],
+    image: 'src/assets/tuto.png'
+  },
+  {
+    id: 'proj3',
+    title: 'React Calculator',
+    category: 'Web development',
+    description: 'A simple and intuitive calculator built with React.',
+    technologies: ['React', 'JavaScript', 'CSS', 'HTML', 'Vite'],
+    image: 'src/assets/react_calcu.png'
+  },
+  {
+    id: 'proj4',
+    title: 'API Liga',
+    category: 'Backend development',
+    description: 'API to manage games on a soccer league',
+    technologies: ['Go', 'sql', 'sqlite'],
+    image: 'src/assets/Apiliga.png'
+  },
+
+];
+---
+
+<section id="projets" class="py-16 sm:py-20 bg-slate-50 dark:bg-gray-900 transition-colors duration-300 overflow-hidden">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12 sm:mb-16 md:mb-20">
+      <h2 class="text-xl sm:text-4xl md:text-5xl font-extrabold text-slate-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-sky-400 dark:via-purple-500 dark:to-pink-500">
+        Projects
+      </br>
+      ---
+      </h2>
+      <p class="mt-4 text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        This are some of my projects that I have developed, showcasing my skills. Each project reflects my passion for technology and my commitment to delivering high-quality solutions.
+        Feel free to explore them and see the technologies I used!
+        <br />
+        I always strive to learn and improve my skills, so if you have any suggestions or feedback, I would love to hear from you!
+      </p>
+    </div>
+    
+    <div 
+        class="opacity-0 transform translate-y-10 transition-all duration-1000 ease-out"
+        data-animate-on-scroll-projets
+    >
+      <ProjectSection client:visible projects={projectData} />
+    </div>
+  </div>
+</section>
+
+<script>
+  const animatedProjetsSection = document.querySelector('[data-animate-on-scroll-projets]');
+
+  if (animatedProjetsSection) {
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.remove('opacity-0', 'translate-y-10');
+                  entry.target.classList.add('opacity-100', 'translate-y-0');
+              } else {
+                  entry.target.classList.add('opacity-0', 'translate-y-10');
+                  entry.target.classList.remove('opacity-100', 'translate-y-0');
+              }
+          });
+      }, {
+          threshold: 0.3
+      });
+
+      observer.observe(animatedProjetsSection);
+  }
+</script>

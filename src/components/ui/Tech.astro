@@ -1,0 +1,43 @@
+---
+type AnimationType = 'float';
+
+export interface TechProps {
+  icon: string;
+  alt?: string;
+  animationType?: AnimationType;
+} 
+
+const {icon, alt = "Tecnologia usada", animationType = 'float'} = Astro.props;
+
+const getAnimationClass = (type?: AnimationType): string => {
+  const animations: Record<AnimationType, string> = {
+    'float': 'animate-float',
+  };
+
+  return type && type in animations ? animations[type] : animations.float;
+};
+
+const animationClass = getAnimationClass(animationType);
+---
+
+<div class={`
+    flex flex-col items-center justify-center
+    p-4 m-2
+    transition-all duration-300
+    cursor-pointer hover:scale-105
+    w-24 h-24 sm:w-32 sm:h-32
+    ${animationClass}
+    hover:animate-none
+    `}>
+        <img 
+            src={icon} 
+            alt={alt}
+            class="
+            w-12 h-12 sm:w-16 sm:h-16
+            object-contain
+            rounded-md
+            transition-transform duration-200
+            hover:rotate-12
+            "
+        />
+</div>

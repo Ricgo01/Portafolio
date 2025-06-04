@@ -1,0 +1,58 @@
+---
+import TechCard from '../ui/TechCard.astro';
+import type { TechSkillProps } from '../ui/TechCard.astro';
+
+const skillsData: TechSkillProps[] = [
+    { name: "Astro", icon: "src/assets/astro-icon-light-gradient.svg", alt: "ASTRO", progress: 30 },
+    { name: "Kotlin", icon: "src/assets/kotlin.svg", alt: "Kotlin", progress: 60 },
+    { name: "JavaScript", icon: "src/assets/jsc.svg", alt: "JavaScript", progress: 70 },
+    { name: "React", icon: "src/assets/react.svg", alt: "React", progress: 70 },
+    { name: "HTML5", icon: "src/assets/html.svg", alt: "HTML5", progress: 95 },
+    { name: "Python", icon: "src/assets/py.svg", alt: "Python", progress: 70 },
+    { name: "SQL", icon: "src/assets/sql.svg", alt: "SQL", progress: 85 },
+    { name: "Git", icon: "src/assets/git.svg", alt: "Git", progress: 90 },
+    { name: "Laravel" , icon: "src/assets/laravel.svg", alt: "Laravel", progress: 50 },
+];
+---
+<section id="tecnologias" class="py-16 sm:py-20 bg-slate-50 dark:bg-slate-800 transition-colors duration-300">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-slate-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-sky-300 dark:via-purple-400 dark:to-pink-400 mb-12 sm:mb-16">
+            Mis Habilidades Técnicas
+        </h2>
+        
+        <div 
+            class="opacity-0 transform translate-y-10 transition-all duration-1000 ease-out"
+            data-animate-on-scroll
+        >
+            <TechCard skills={skillsData} />
+        </div>
+    </div>
+</section>
+
+
+<script>
+    const currentSection = document.getElementById('tecnologias');
+
+    if (currentSection) {
+        const animatedElementInSection = currentSection.querySelector('[data-animate-on-scroll]');
+
+        if (animatedElementInSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        
+                    } else {
+                        entry.target.classList.add('opacity-0', 'translate-y-10');
+                        entry.target.classList.remove('opacity-100', 'translate-y-0');
+                    }
+                });
+            }, {
+                threshold: 0.3
+            });
+
+            observer.observe(animatedElementInSection);
+        }
+    }
+</script>

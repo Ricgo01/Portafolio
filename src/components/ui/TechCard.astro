@@ -1,0 +1,52 @@
+---
+export interface TechSkillProps {
+    name: string;
+    icon: string;
+    alt?: string;
+    progress?: number;
+}
+
+export interface Props {
+    skills: TechSkillProps[];
+}
+const { skills } = Astro.props;
+
+function isValidProgress(value: number | undefined): boolean {
+    return typeof value === 'number' && value >= 0 && value <= 100;
+}
+---
+
+<div class="flex flex-wrap justify-center items-center gap-4 p-4 sm:p-6 md:p-8">
+    {skills.map((skill) => {
+        const showProgress = isValidProgress(skill.progress);
+        
+        return (
+            <div class="flex flex-col items-center justify-between p-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 w-40 h-56 sm:w-44 sm:h-60 border border-gray-200 dark:border-gray-700 group">
+                <div class="flex flex-col items-center mb-3">
+                    <img
+                        src={skill.icon}
+                        alt={skill.alt || skill.name}
+                        class="w-16 h-16 sm:w-20 sm:h-20 object-contain mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6"
+                    />
+                    <span class="text-md font-semibold text-center text-gray-700 dark:text-gray-300">
+                        {skill.name}
+                    </span>
+                </div>
+
+                {showProgress && (
+                    <div class="w-full px-2">
+                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mb-1">
+                            <div 
+                                class="bg-gradient-to-r from-blue-500 to-cyan-500 dark:from-blue-400 dark:to-cyan-400 h-3 rounded-full transition-all duration-700 ease-out"
+                                style={{width: `${skill.progress}%`}}
+                            />
+                        </div>
+                        <p class="text-xs text-center font-medium text-blue-600 dark:text-blue-400">
+                            {skill.progress}%
+                        </p>
+                    </div>
+                )}
+            </div>
+        );
+    })}
+</div>

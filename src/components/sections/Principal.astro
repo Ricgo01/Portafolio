@@ -1,0 +1,100 @@
+---
+
+import Tech from '../ui/Tech.astro';
+
+const techIcons = [
+    { icon: "src/assets/astro-icon-light-gradient.svg", alt: "ASTRO", animation: "float" },
+    { icon: "src/assets/laravel.svg", alt: "Laravel", animation: "float" },
+    { icon: "src/assets/jsc.svg", alt: "JavaScript", animation: "float" },
+    { icon: "src/assets/react.svg", alt: "React", animation: "float" },
+    { icon: "src/assets/html.svg", alt: "html", animation: "float" },
+    { icon: "src/assets/py.svg", alt: "python", animation: "float" },
+    { icon: "src/assets/sql.svg", alt: "Python", animation: "float" },
+    { icon: "src/assets/git.svg", alt: "Git", animation: "float" },
+    { icon: "src/assets/kotlin.svg", alt: "Kotlin", animation: "float" },
+    { icon: "src/assets/css.svg", alt: "CSS3", animation: "float" }
+];
+
+const taglineParts = ["Ricardo Godinez", "Full Stack Developer Software Engineer"];
+
+const firstLineLength = taglineParts[0] ? taglineParts[0].length : 0;
+const typingSpeedMs = 50;
+const pauseBetweenLinesMs = 500; 
+const delayForSecondLine = (firstLineLength * typingSpeedMs) + pauseBetweenLinesMs;
+
+const iconPositions = [
+    { row: 1, col: 1 }, { row: 1, col: 2 }, { row: 1, col: 3 }, { row: 1, col: 4 },
+    { row: 3, col: 1 }, { row: 3, col: 2 }, { row: 3, col: 3 }, { row: 3, col: 4 },
+];
+---
+
+
+<section id="principal" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 p-4 sm:p-6 md:p-8 overflow-hidden">
+    <div class="grid grid-cols-4 grid-rows-3 gap-x-4 sm:gap-x-6 md:gap-x-8 lg:gap-x-10 xl:gap-x-12 gap-y-3 sm:gap-y-4 md:gap-y-4 place-items-center w-full max-w-lg sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-5xl p-4 sm:p-5">
+          <div class="col-start-1 col-span-4 row-start-2 flex items-center justify-center w-full h-full px-2 sm:px-4">
+            <h2 
+                class="text-xxl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-center 
+                       text-slate-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-sky-300 dark:via-purple-400 dark:to-pink-400
+                       drop-shadow-xl dark:drop-shadow-[0_0_5px_rgba(124,109,217,0.8)]
+                       leading-tight sm:leading-tight md:leading-tight p-2 sm:p-3" 
+            >
+                <span id="typewriter-line1" class="block min-h-[1.2em]"></span>
+                <span id="typewriter-line2" class="block min-h-[1.2em]"></span>
+            </h2>
+        </div>
+
+
+        {iconPositions.map((pos, index) => {
+            const tech = techIcons[index]; 
+            if (!tech) return null; 
+
+            return (
+                <div class={`col-start-${pos.col} row-start-${pos.row} flex items-center justify-center p-1 sm:p-2`}>
+                    <Tech icon={tech.icon} alt={tech.alt} animationType={tech.animation} />
+                </div>
+            );
+        })}
+    </div>
+</section>
+
+<script>
+    // Typewriter effect implementation
+    function typewriterEffect(elementId: string, text: string, speed: number = 50, delay: number = 0) {
+        const element = document.getElementById(elementId);
+        if (!element) return Promise.resolve();
+
+        return new Promise<void>((resolve) => {
+            setTimeout(() => {
+                let i = 0;
+                element.textContent = '';
+                
+                function typeChar() {
+                    if (i < text.length && element) {
+                        element.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeChar, speed);
+                    } else {
+                        resolve();
+                    }
+                }
+                
+                typeChar();
+            }, delay);
+        });
+    }
+
+    // Initialize typewriter effect when the page loads
+    document.addEventListener('DOMContentLoaded', async () => {
+        const line1 = 'Ricardo Godinez';
+        const line2 = 'Full Stack Developer Software Engineer';
+        const typingSpeed = 50;
+        const pauseBetweenLines = 500;
+
+        // Type first line
+        await typewriterEffect('typewriter-line1', line1, typingSpeed);
+        
+        // Wait a bit, then type second line
+        await new Promise(resolve => setTimeout(resolve, pauseBetweenLines));
+        await typewriterEffect('typewriter-line2', line2, typingSpeed);
+    });
+</script>

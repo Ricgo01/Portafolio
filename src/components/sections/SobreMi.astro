@@ -1,0 +1,61 @@
+---
+
+---
+
+<section id = "sobremi" class = "min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 p-4 sm:p-6 md:p-8 overflow-hidden">
+    <div class = "max-w-2xl w-full p-4 sm:p-6 md:p-8">
+
+    </div>
+    
+    <div 
+        class="max-w-2xl w-full p-4 sm:p-6 md:p-8 
+               opacity-0 transform translate-y-10 transition-all duration-1000 ease-out"
+        data-animate-on-scroll
+    >
+        <h2 class = "text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-sky-300 dark:via-purple-400 dark:to-pink-400 drop-shadow-xl dark:drop-shadow-[0_5px_7px_rgba(0,0,0,0.5)] mb-6">
+            Sobre Mí
+        </h2>
+        <p class = "text-lg sm:text-xl md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
+            Soy un apasionado desarrollador con experiencia en tecnologías modernas como Astro, React y Python. Siempre estoy buscando aprender y mejorar mis habilidades.
+        </p>
+
+        <button id = 'github-button' class = "mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
+            GitHub
+        </button>
+        <button id = 'cv-button' class = "mt-4 px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300">
+            CV
+        </button>
+
+    </div>
+</section>
+
+<script>
+    document.getElementById('github-button')?.addEventListener('click', () => {
+        window.open('https://github.com/Ricgo01', '_blank');
+    });
+
+    document.getElementById('cv-button')?.addEventListener('click', () => {
+        window.open('ruta/a/tu/cv.pdf', '_blank');
+    });
+
+    const animatedSection = document.querySelector('[data-animate-on-scroll]');
+
+    if (animatedSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                }
+                else {
+                    entry.target.classList.add('opacity-0', 'translate-y-10');
+                    entry.target.classList.remove('opacity-100', 'translate-y-0');
+                }
+            });
+        }, {
+            threshold: 0.7
+        });
+
+        observer.observe(animatedSection);
+    }
+</script>
