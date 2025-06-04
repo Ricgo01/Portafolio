@@ -17,29 +17,28 @@ interface ProjectCardItemProps {
 
 const ProjectCardItem: React.FC<ProjectCardItemProps> = ({project, isActive, onActivate}) => {
     return (
-        <li>
-            <button
+        <li>            <button
                 onClick={() => onActivate(project.id)}
                 onMouseEnter={() => onActivate(project.id)}
                 className={`w-full text-left p-3.5 rounded-lg transition-all duration-200 ease-in-out focus:outline-none group
                     ${isActive
-                      ? 'bg-blue-500 dark:bg-blue-600 shadow-lg transform scale-[1.02]'
-                      : 'hover:bg-slate-200 dark:hover:bg-slate-700/60 hover:shadow-md'
+                      ? 'bg-primary-brown shadow-lg transform scale-[1.02] border border-primary-brown'
+                      : 'hover:bg-light-surface/60 dark:hover:bg-dark-surface/60 hover:shadow-md border border-transparent hover:border-primary-brown/20'
                     }`}
             >
                 <div className="flex justify-between items-center">
                     <span className={`font-semibold text-lg
                                     ${isActive
-                                        ? 'text-white dark:text-white'
-                                        : 'text-slate-800 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-slate-100'
+                                        ? 'text-light-bg'
+                                        : 'text-light-text dark:text-dark-text group-hover:text-primary-brown dark:group-hover:text-primary-beige'
                                     }`}>
                         {isActive && <span className="mr-2 transition-opacity duration-300">➔</span>}
                         {project.title}
                     </span>
                     <span className={`text-xs uppercase tracking-wider font-medium
                                         ${isActive
-                                        ? 'text-blue-100 dark:text-blue-200'
-                                        : 'text-slate-500 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300'
+                                        ? 'text-light-bg/80'
+                                        : 'text-light-secondary dark:text-dark-secondary group-hover:text-primary-brown dark:group-hover:text-primary-beige'
                                         }`}>
                         {project.category}
                     </span>

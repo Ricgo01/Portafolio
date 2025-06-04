@@ -1,0 +1,51 @@
+---
+import Formu from '../ui/Formu.astro';
+import ContButtom from '../ui/ContButtom.astro';
+
+const contacts = [
+    {
+        platform: 'linkedin',
+        link: 'https://www.linkedin.com/in/ricardo-arturo-godinez-sanchez-22601836a/'
+    },
+    {
+        platform: 'instagram', 
+        link: 'https://www.instagram.com/ricgo_01/'
+    },
+    {
+        platform: 'github',
+        link: 'https://github.com/Ricgo01'
+    }
+];
+---
+
+<div id="contact" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-light-surface via-light-bg to-primary-beige dark:from-dark-surface dark:via-dark-bg dark:to-primary-navy p-4 sm:p-6 md:p-8 overflow-hidden transition-colors duration-300">
+    <div class="max-w-2xl w-full">
+        <h2 class="text-4xl font-bold text-center text-light-text dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-primary-beige dark:via-light-bg dark:to-primary-brown mb-8 drop-shadow-lg">
+            Get in Touch
+        </h2>
+        
+        <div class="grid md:grid-cols-1 gap-8">
+            <div class="bg-light-surface dark:bg-dark-surface rounded-lg shadow-xl p-6 border border-light-secondary/20 dark:border-dark-secondary/20">
+                <h3 class="text-xl font-semibold text-light-text dark:text-dark-text mb-4 text-center">
+                    Send me a message
+                </h3>
+                <Formu />
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold text-gray-800 dark:text-white mb-4 text-center">
+                    Or find me on
+                </h3>
+                <div class="flex justify-center gap-4 flex-wrap">
+                    {contacts.map(contact => (
+                        <ContButtom 
+                            platform={contact.platform as any}
+                            link={contact.link}
+                            size="lg"
+                        />
+                    ))}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

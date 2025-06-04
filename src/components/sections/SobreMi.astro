@@ -2,29 +2,39 @@
 
 ---
 
-<section id = "sobremi" class = "min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 p-4 sm:p-6 md:p-8 overflow-hidden">
-    <div class = "max-w-2xl w-full p-4 sm:p-6 md:p-8">
+<section id = "sobremi" class = "min-h-screen flex items-center justify-center bg-gradient-to-br from-light-surface via-primary-beige to-light-bg dark:from-dark-surface dark:via-primary-navy dark:to-dark-bg p-4 sm:p-6 md:p-8 overflow-hidden transition-colors duration-300">
 
-    </div>
-    
-    <div 
-        class="max-w-2xl w-full p-4 sm:p-6 md:p-8 
+    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+
+        <div class="flex-shrink-0">
+            <img 
+                src="/src/assets/yo.jpg" 
+                alt="Ricardo Arturo Godinez - Desarrollador Web" 
+                class="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 
+                       rounded-full object-cover shadow-2xl 
+                       transition-all duration-500 ease-in-out 
+                       transform hover:scale-105 hover:shadow-3xl
+                       border-4 border-light-surface dark:border-dark-text ring-4 ring-primary-brown/20"
+            />
+        </div>
+        <div class="max-w-2xl w-full p-4 sm:p-6 md:p-8 
                opacity-0 transform translate-y-10 transition-all duration-1000 ease-out"
         data-animate-on-scroll
     >
-        <h2 class = "text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-sky-300 dark:via-purple-400 dark:to-pink-400 drop-shadow-xl dark:drop-shadow-[0_5px_7px_rgba(0,0,0,0.5)] mb-6">
-            Sobre Mí
+        <h2 class = "text-3xl sm:text-4xl md:text-5xl font-extrabold text-light-text dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-primary-beige dark:via-light-bg dark:to-primary-brown drop-shadow-xl dark:drop-shadow-[0_5px_7px_rgba(0,0,0,0.5)] mb-6">
+            About Me
         </h2>
-        <p class = "text-lg sm:text-xl md:text-xl text-slate-700 dark:text-slate-300 leading-relaxed">
-            Soy un apasionado desarrollador con experiencia en tecnologías modernas como Astro, React y Python. Siempre estoy buscando aprender y mejorar mis habilidades.
+        <p class = "text-lg sm:text-xl md:text-xl text-light-secondary dark:text-dark-secondary leading-relaxed">
+            I'm a young developer and a student at Universidad del Valle de Guatemala, currently immersed in the full spectrum of web development. My toolkit is modern, high-performance sites, dynamic UIs, and robust back-ends, complemented by database management skills. I bring a fresh perspective and dedicated energy to every project, viewing my youth as a strength—I'm quick to learn, eager to tackle new challenges, and always open to feedback that helps me build better and grow faster.
         </p>
-
-        <button id = 'github-button' class = "mt-6 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">
-            GitHub
-        </button>
-        <button id = 'cv-button' class = "mt-4 px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300">
-            CV
-        </button>
+        <div class="flex flex-col sm:flex-row gap-4 mt-6">
+            <button id = 'github-button' class = "px-6 py-3 bg-primary-blue hover:bg-primary-navy text-light-bg font-semibold rounded-lg shadow-md transition-all duration-300 transform hover:scale-105">
+                GitHub
+            </button>
+            <button id = 'cv-button' class = "px-6 py-3 bg-primary-brown hover:bg-primary-brown/80 text-light-bg font-semibold rounded-lg shadow-md transition-all duration-300 transform hover:scale-105">
+                Download CV
+            </button>
+        </div>
 
     </div>
 </section>

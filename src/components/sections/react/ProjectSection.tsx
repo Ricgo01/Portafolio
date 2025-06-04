@@ -18,16 +18,15 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ projects }) => {
   };
 
   const activeProject = projects.find(p => p.id === activeProjectId) || null;
-
   if (!projects || projects.length === 0) {
-    return <p className="text-center text-slate-500 dark:text-slate-400 py-10">Aucun projet à afficher pour le moment.</p>;
+    return <p className="text-center text-light-secondary dark:text-dark-secondary py-10">No hay proyectos para mostrar en este momento.</p>;
   }
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 md:gap-12 min-h-[70vh] md:min-h-[80vh]">
       <div className="w-full lg:w-2/5 xl:w-1/3 space-y-3 lg:pr-6">
-        <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-slate-700 dark:text-slate-200 tracking-wider uppercase">
-          Projets
+        <h3 className="text-2xl sm:text-3xl font-bold mb-6 text-light-text dark:text-dark-text tracking-wider uppercase">
+          Projects
         </h3>
         <ul className="space-y-1">
           {projects.map((project, index) => (
@@ -36,9 +35,8 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ projects }) => {
                 project={project}
                 isActive={project.id === activeProjectId}
                 onActivate={handleActivateProject}
-              />
-              {index < projects.length - 1 && (
-                <hr className="border-slate-200 dark:border-slate-700 my-2 lg:my-1" />
+              />              {index < projects.length - 1 && (
+                <hr className="border-light-secondary/30 dark:border-dark-secondary/30 my-2 lg:my-1" />
               )}
             </React.Fragment>
           ))}

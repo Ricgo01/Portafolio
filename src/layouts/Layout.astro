@@ -3,6 +3,8 @@ import SobreMi from '../components/sections/SobreMi.astro';
 import Tecnologias from '../components/sections/Tecnologias.astro';
 import Principal from '../components/sections/Principal.astro';
 import Proyectos from '../components/sections/Proyectos.astro';
+import Contact from '../components/sections/Contact.astro';
+import ThemeToggle from '../components/ui/ThemeToggle.astro';
 
 export interface Props {
     title: string;
@@ -18,21 +20,29 @@ export { SobreMi, Tecnologias, Principal, Proyectos };
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
         <link rel="stylesheet" href="/styles/global.css">
     </head>
-    <body class="bg-gray-50 dark:bg-gray-900">
-        <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md shadow-sm transition-all duration-300">
+    <body class="bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-300">
+        <header class="sticky top-0 z-50 bg-light-surface/90 dark:bg-dark-surface/90 backdrop-blur-md shadow-lg border-b border-light-secondary/20 dark:border-dark-secondary/20 transition-all duration-300">
             <nav class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-                <button></button>
-                <a href="/" class="text-xl font-bold text-gray-900 dark:text-white">Mi Portafolio</a>
-                <div class="space-x-4">
-                    <a href="/" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Inicio</a>
-                    <a href="/#sobremi" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Sobre Mí</a>
-                    <a href="/#tecnologias" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Tecnologías</a>
-                    <a href="/#projets" class="text-gray-600 dark:text-gray-300 hover:text-blue-600">Proyectos</a>
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-primary-brown to-primary-blue rounded-lg flex items-center justify-center">
+                        <span class="text-light-bg font-bold text-sm">RG</span>
+                    </div>
+                    <span class="font-semibold text-light-text dark:text-dark-text">Ricardo Godinez</span>
+                </div>
+                
+                <div class="flex items-center space-x-6">
+                    <div class="hidden md:flex space-x-4">
+                        <a href="/#sobremi" class="text-light-secondary dark:text-dark-secondary hover:text-primary-brown transition-colors duration-200 font-medium">About Me</a>
+                        <a href="/#tecnologias" class="text-light-secondary dark:text-dark-secondary hover:text-primary-brown transition-colors duration-200 font-medium">Technologies</a>
+                        <a href="/#proyectos" class="text-light-secondary dark:text-dark-secondary hover:text-primary-brown transition-colors duration-200 font-medium">Projects</a>
+                        <a href="/#contact" class="text-light-secondary dark:text-dark-secondary hover:text-primary-brown transition-colors duration-200 font-medium">Contact</a>
+                    </div>
+                    <ThemeToggle />
                 </div>
             </nav>
         </header>
@@ -41,8 +51,8 @@ export { SobreMi, Tecnologias, Principal, Proyectos };
             <slot />
         </main>
 
-        <footer class="bg-gray-800 text-white p-6 text-center">
-            <p>© 2025 Mi Portafolio</p>
+        <footer class="bg-light-secondary dark:bg-dark-surface text-light-bg dark:text-dark-text p-6 text-center border-t border-light-secondary/20 dark:border-dark-secondary/20">
+            <p class="font-medium">© 2025 Ricardo Godinez - Portfolio</p>
         </footer>
     </body>
 </html>

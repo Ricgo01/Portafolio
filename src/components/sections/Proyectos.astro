@@ -39,16 +39,15 @@ const projectData: Project[] = [
 ];
 ---
 
-<section id="projets" class="py-16 sm:py-20 bg-slate-50 dark:bg-gray-900 transition-colors duration-300 overflow-hidden">
+<section id="proyectos" class="py-16 sm:py-20 bg-gradient-to-br from-light-bg via-primary-beige to-light-surface dark:from-dark-bg dark:via-primary-navy dark:to-dark-surface transition-colors duration-300 overflow-hidden">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12 sm:mb-16 md:mb-20">
-      <h2 class="text-xl sm:text-4xl md:text-5xl font-extrabold text-slate-800 dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-sky-400 dark:via-purple-500 dark:to-pink-500">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-light-text dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-r dark:from-primary-beige dark:via-light-bg dark:to-primary-brown drop-shadow-lg">
         Projects
-      </br>
-      ---
       </h2>
-      <p class="mt-4 text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-        This are some of my projects that I have developed, showcasing my skills. Each project reflects my passion for technology and my commitment to delivering high-quality solutions.
+      <div class="mt-2 w-24 h-1 bg-gradient-to-r from-primary-blue to-primary-brown mx-auto rounded-full"></div>
+      <p class="mt-6 text-lg sm:text-xl text-light-secondary dark:text-dark-secondary max-w-2xl mx-auto leading-relaxed">
+        These are some of my projects that I have developed, showcasing my skills. Each project reflects my passion for technology and my commitment to delivering high-quality solutions.
         Feel free to explore them and see the technologies I used!
         <br />
         I always strive to learn and improve my skills, so if you have any suggestions or feedback, I would love to hear from you!
@@ -79,7 +78,7 @@ const projectData: Project[] = [
               }
           });
       }, {
-          threshold: 0.3
+          threshold: 0.1
       });
 
       observer.observe(animatedProjetsSection);

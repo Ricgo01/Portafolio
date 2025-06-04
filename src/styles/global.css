@@ -1,1 +1,84 @@
 @import "tailwindcss";
+
+/* Custom CSS Variables for Theme Colors */
+:root {
+  --color-primary-beige: #EFE4D2;
+  --color-primary-blue: #254D70;
+  --color-primary-navy: #131D4F;
+  --color-primary-brown: #954C2E;
+  
+  /* Light theme variables */
+  --color-light-bg: #EFE4D2;
+  --color-light-surface: #FFFFFF;
+  --color-light-text: #131D4F;
+  --color-light-secondary: #254D70;
+  --color-light-accent: #954C2E;
+  
+  /* Dark theme variables */
+  --color-dark-bg: #131D4F;
+  --color-dark-surface: #254D70;
+  --color-dark-text: #EFE4D2;
+  --color-dark-secondary: #EFE4D2;
+  --color-dark-accent: #954C2E;
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-light-bg);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--color-dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-brown);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-blue);
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-primary-brown);
+  color: var(--color-light-bg);
+}
+
+.dark ::selection {
+  background-color: var(--color-primary-beige);
+  color: var(--color-dark-bg);
+}
+
+/* Focus outline styling */
+*:focus-visible {
+  outline: 2px solid var(--color-primary-brown);
+  outline-offset: 2px;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide elements smoothly */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}

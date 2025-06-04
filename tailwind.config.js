@@ -1,11 +1,36 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
     "./public/**/*.html"
   ],
   theme: {
     extend: {
+      colors: {
+        // Paleta personalizada
+        primary: {
+          beige: '#EFE4D2',
+          blue: '#254D70',
+          navy: '#131D4F',
+          brown: '#954C2E',
+        },
+        // Variaciones de tema
+        light: {
+          bg: '#EFE4D2',
+          surface: '#FFFFFF',
+          text: '#131D4F',
+          secondary: '#254D70',
+          accent: '#954C2E',
+        },
+        dark: {
+          bg: '#131D4F',
+          surface: '#254D70',
+          text: '#EFE4D2',
+          secondary: '#EFE4D2',
+          accent: '#954C2E',
+        }
+      },
       animation: {
         // Animaciones personalizadas para los logos de tecnología
         'float': 'float 3s ease-in-out infinite',
