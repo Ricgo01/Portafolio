@@ -1,48 +1,137 @@
-# Astro Starter Kit: Basics
+# 🌟 Portafolio Personal
 
-```sh
-npm create astro@latest -- --template basics
-```
+Un portafolio moderno y responsive construido con **Astro**, **React**, y **Tailwind CSS**, diseñado para mostrar proyectos y habilidades técnicas con un sistema de temas personalizado y una paleta de colores única.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## ✨ Características
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- 🎨 **Paleta de colores personalizada** (Beige, Azul, Navy, Marrón)
+- 🌙 **Modo oscuro/claro** con toggle animado
+- 📱 **Diseño completamente responsive**
+- ⚡ **Performance optimizada** con Astro
+- 🔗 **Navegación suave** entre secciones
+- 📧 **Formulario de contacto** funcional con EmailJS
+- 🎭 **Animaciones** y transiciones fluidas
+- 🚀 **Deploy automático** a GitHub Pages
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🎨 Paleta de Colores
 
-## 🚀 Project Structure
+| Color | Hex | Uso |
+|-------|-----|-----|
+| **Beige** | `#EFE4D2` | Fondos principales, elementos secundarios |
+| **Azul** | `#254D70` | Acentos, links, botones |
+| **Navy** | `#131D4F` | Textos principales, elementos oscuros |
+| **Marrón** | `#954C2E` | Destacados, call-to-action |
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🛠️ Stack Tecnológico
+
+- **Framework:** [Astro](https://astro.build/) v5.8.0
+- **UI Components:** [React](https://reactjs.org/) v19.1.0
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/) v3.4.17
+- **Animaciones:** Typewriter Effect
+- **Email Service:** EmailJS
+- **Deploy:** GitHub Pages con GitHub Actions
+
+## 📁 Estructura del Proyecto
 
 ```text
 /
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # Workflow de GitHub Actions
 ├── public/
+│   ├── images/                 # Imágenes estáticas
+│   ├── icons/                  # Iconos SVG
 │   └── favicon.svg
 ├── src/
+│   ├── components/
+│   │   ├── sections/           # Secciones del portafolio
+│   │   │   ├── Principal.astro
+│   │   │   ├── SobreMi.astro
+│   │   │   ├── Tecnologias.astro
+│   │   │   ├── Proyectos.astro
+│   │   │   ├── Contact.astro
+│   │   │   └── react/
+│   │   │       └── ProjectSection.tsx
+│   │   └── ui/                 # Componentes reutilizables
+│   │       ├── ThemeToggle.astro
+│   │       ├── TechCard.astro
+│   │       ├── ProjectCardItem.tsx
+│   │       └── Formu.astro
 │   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   │   └── Layout.astro        # Layout principal
+│   ├── pages/
+│   │   └── index.astro         # Página principal
+│   └── styles/
+│       └── global.css          # Estilos globales
+├── astro.config.mjs            # Configuración de Astro
+├── tailwind.config.js          # Configuración de Tailwind
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Instalación y Desarrollo
 
-## 🧞 Commands
+### Prerequisitos
 
-All commands are run from the root of the project, from a terminal:
+- Node.js 18+ 
+- npm o yarn
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Instalación
 
-## 👀 Want to learn more?
+```bash
+# Clonar el repositorio
+git clone https://github.com/tu-usuario/portafolio.git
+cd portafolio
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+# Instalar dependencias
+npm install
+
+# Ejecutar en modo desarrollo
+npm run dev
+```
+
+El sitio estará disponible en `http://localhost:4321`
+
+## 📦 Scripts Disponibles
+
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Inicia el servidor de desarrollo |
+| `npm run build` | Construye la aplicación para producción |
+| `npm run preview` | Previsualiza la build de producción |
+| `npm run astro` | Ejecuta comandos de Astro CLI |
+
+## 🚀 Deploy
+
+### GitHub Pages (Automático)
+
+El proyecto está configurado para deploy automático en GitHub Pages usando GitHub Actions:
+
+1. **Push a main** → Trigger automático del workflow
+2. **Build** → Astro construye el sitio estático
+3. **Deploy** → Se despliega automáticamente a GitHub Pages
+
+### Deploy Manual
+
+```bash
+# Construir para producción
+npm run build
+
+# Previsualizar la build
+npm run preview
+```
+
+## 🎯 Secciones del Portafolio
+
+1. **Principal** - Hero section con introducción y typewriter effect
+2. **Sobre Mí** - Información personal y profesional
+3. **Tecnologías** - Grid de tecnologías y herramientas
+4. **Proyectos** - Showcase de proyectos con detalles
+5. **Contacto** - Formulario funcional de contacto
+
+## 🌙 Sistema de Temas
+
+- **Toggle animado** con iconos de sol/luna
+- **Persistencia** en localStorage
+- **Transiciones suaves** entre temas
+- **Variables CSS personalizadas** para cada tema
+
