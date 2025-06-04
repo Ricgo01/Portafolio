@@ -2,18 +2,30 @@
 import TechCard from '../ui/TechCard.astro';
 import type { TechSkillProps } from '../ui/TechCard.astro';
 
+import astroIcon from '../../assets/astro-icon-light-gradient.svg';
+import kotlinIcon from '../../assets/kotlin.svg';
+import jsIcon from '../../assets/jsc.svg';
+import reactIcon from '../../assets/react.svg';
+import htmlIcon from '../../assets/html.svg';
+import pyIcon from '../../assets/py.svg';
+import sqlIcon from '../../assets/sql.svg';
+import gitIcon from '../../assets/git.svg';
+import laravelIcon from '../../assets/laravel.svg';
+import vueIcon from '../../assets/vue.svg';
+import postgresqlIcon from '../../assets/postgresql.svg';
+
 const skillsData: TechSkillProps[] = [
-    { name: "Astro", icon: "src/assets/astro-icon-light-gradient.svg", alt: "ASTRO", progress: 30 },
-    { name: "Kotlin", icon: "src/assets/kotlin.svg", alt: "Kotlin", progress: 60 },
-    { name: "JavaScript", icon: "src/assets/jsc.svg", alt: "JavaScript", progress: 70 },
-    { name: "React", icon: "src/assets/react.svg", alt: "React", progress: 70 },
-    { name: "HTML5", icon: "src/assets/html.svg", alt: "HTML5", progress: 95 },
-    { name: "Python", icon: "src/assets/py.svg", alt: "Python", progress: 70 },
-    { name: "SQL", icon: "src/assets/sql.svg", alt: "SQL", progress: 85 },
-    { name: "Git", icon: "src/assets/git.svg", alt: "Git", progress: 90 },
-    { name: "Laravel" , icon: "src/assets/laravel.svg", alt: "Laravel", progress: 50 },
-    { name: "Vue", icon: "src/assets/vue.svg", alt: "Vue", progress: 50 },
-    { name: "postgreSQL", icon: "src/assets/postgresql.svg", alt: "PostgreSQL", progress: 90 },
+    { name: "Astro", icon: astroIcon.src, alt: "ASTRO", progress: 30 },
+    { name: "Kotlin", icon: kotlinIcon.src, alt: "Kotlin", progress: 60 },
+    { name: "JavaScript", icon: jsIcon.src, alt: "JavaScript", progress: 70 },
+    { name: "React", icon: reactIcon.src, alt: "React", progress: 70 },
+    { name: "HTML5", icon: htmlIcon.src, alt: "HTML5", progress: 95 },
+    { name: "Python", icon: pyIcon.src, alt: "Python", progress: 70 },
+    { name: "SQL", icon: sqlIcon.src, alt: "SQL", progress: 85 },
+    { name: "Git", icon: gitIcon.src, alt: "Git", progress: 90 },
+    { name: "Laravel" , icon: laravelIcon.src, alt: "Laravel", progress: 50 },
+    { name: "Vue", icon: vueIcon.src, alt: "Vue", progress: 50 },
+    { name: "postgreSQL", icon: postgresqlIcon.src, alt: "PostgreSQL", progress: 90 },
 ];
 ---
 <section id="tecnologias" class="py-16 sm:py-20 bg-gradient-to-br from-primary-beige via-light-surface to-light-bg dark:from-primary-navy dark:via-dark-surface dark:to-dark-bg transition-colors duration-300">

@@ -2,6 +2,11 @@
 import ProjectSection from './react/ProjectSection.tsx';
 import type { Project } from '../ui/ProjectCardItem';
 
+import solImage from '../../assets/sol.png';
+import tutoImage from '../../assets/tuto.png';
+import reactCalcuImage from '../../assets/react_calcu.png';
+import apiLigaImage from '../../assets/Apiliga.png';
+
 const projectData: Project[] = [
   {
     id: 'proj1',
@@ -9,7 +14,7 @@ const projectData: Project[] = [
     category: 'Full-Stack',
     description: 'Plataforma de E-commerce para venta y manejo de catalogo de empresa de impresiones 3d',
     technologies: ['Vue', 'Laravel', 'Tailwind CSS', 'JavaScript', 'PostgreSQL'],
-    image: 'src/assets/sol.png'
+    image: solImage.src
   },
   {
     id: 'proj2',
@@ -17,7 +22,7 @@ const projectData: Project[] = [
     category: 'Mobile development',
     description: 'The best way to find tutors and students in your area, with a simple and intuitive interface.',
     technologies: ['Kotlin', 'Firebase', 'AndroidStudio'],
-    image: 'src/assets/tuto.png'
+    image: tutoImage.src
   },
   {
     id: 'proj3',
@@ -25,7 +30,7 @@ const projectData: Project[] = [
     category: 'Web development',
     description: 'A simple and intuitive calculator built with React.',
     technologies: ['React', 'JavaScript', 'CSS', 'HTML', 'Vite'],
-    image: 'src/assets/react_calcu.png'
+    image: reactCalcuImage.src
   },
   {
     id: 'proj4',
@@ -33,7 +38,7 @@ const projectData: Project[] = [
     category: 'Backend development',
     description: 'API to manage games on a soccer league',
     technologies: ['Go', 'sql', 'sqlite'],
-    image: 'src/assets/Apiliga.png'
+    image: apiLigaImage.src
   },
 
 ];
