@@ -94,17 +94,14 @@ const iconPositions = [
         });
     }
 
-    // Initialize typewriter effect when the page loads
     document.addEventListener('DOMContentLoaded', async () => {
         const line1 = 'Ricardo Godinez';
         const line2 = 'Full Stack Developer Software Engineer';
         const typingSpeed = 50;
         const pauseBetweenLines = 500;
 
-        // Type first line
         await typewriterEffect('typewriter-line1', line1, typingSpeed);
         
-        // Wait a bit, then type second line
         await new Promise(resolve => setTimeout(resolve, pauseBetweenLines));
         await typewriterEffect('typewriter-line2', line2, typingSpeed);
     });
