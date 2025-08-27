@@ -45,7 +45,17 @@ import yo from '../../assets/yo.jpg';
     });
 
     document.getElementById('cv-button')?.addEventListener('click', () => {
-        window.open('ruta/a/tu/cv.pdf', '_blank');
+        // Crear un enlace temporal para descargar el archivo
+        const link = document.createElement('a');
+        // Detectar si estamos en desarrollo o producción
+        const isProduction = window.location.hostname !== 'localhost';
+        const basePath = isProduction ? '/Portafolio' : '';
+        link.href = `${basePath}/Cv_Ricardo_Godinez.pdf`;
+        link.download = 'Ricardo_Godinez_CV.pdf';
+        link.setAttribute('target', '_blank'); // Asegurar que se abra en nueva pestaña si no se descarga
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     });
 
     const animatedSection = document.querySelector('[data-animate-on-scroll]');
