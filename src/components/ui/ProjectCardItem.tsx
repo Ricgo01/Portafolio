@@ -19,7 +19,6 @@ interface ProjectCardItemProps {
 const ProjectCardItem: React.FC<ProjectCardItemProps> = ({project, isActive, onActivate}) => {
     const handleClick = () => {
         onActivate(project.id);
-        // Si tiene URL de repositorio, abrirlo
         if (project.repoUrl) {
             window.open(project.repoUrl, '_blank');
         }
